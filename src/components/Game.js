@@ -5,36 +5,49 @@ import { GameCard } from "./GameCard";
 import scenarios from "../scenarios.json";
 
 function Game() {
-	const [image, setImage] = useState("");
+	const [image, setImage] = useState();
 	const [tips, setTips] = useState();
 	const [answer, setAnswer] = useState();
 	const [isCorrect, setCorrect] = useState();
 
-	const [randomScenario, setRandomScenario] = useState({});
+	//const [randomScenario, setRandomScenario] = useState({});
+
+	//let setScenario = useCallback(() => {
+	//	//setRandomScenario(
+	//	const scenario =
+	//		scenarios.all[Math.floor(Math.random() * scenarios.all.length)];
+	//	//);
+	//	setImage(scenario.imageURL);
+	//	setTips(scenario.tips);
+	//	setAnswer(scenario.answer);
+
+	//	console.log("image", image);
+	//	console.log("tips", tips);
+	//	console.log("answer", answer);
+	//}, [answer, image, tips]);
 
 	useEffect(() => {
 		console.log("mount");
-
-		setRandomScenario(
-			scenarios.all[Math.floor(Math.random() * scenarios.all.length)]
-		);
+		const scenario =
+			scenarios.all[Math.floor(Math.random() * scenarios.all.length)];
+		setImage(scenario.imageURL);
+		setTips(scenario.tips);
+		setAnswer(scenario.answer);
 	}, []);
 
-	useEffect(() => {
-		setImage(randomScenario.imageUrl);
-		setAnswer(randomScenario.answer);
-		setTips(randomScenario.tips);
-
-		console.log(randomScenario);
-	}, [randomScenario]);
-
 	function submitAnswer(userAnswer) {
+		console.log("actual answer", answer);
+		console.log("user answer", userAnswer);
 		answer === userAnswer ? setCorrect(true) : setCorrect(false);
-		console.log(isCorrect);
 	}
 
 	return (
 		<div className="App">
+			{isCorrect === true ? (
+				<p>Correct</p>
+			) : isCorrect === false ? (
+				<p>Incorrect</p>
+			) : null}
 			<div className="accent-bar bg-both" />
 			<div className="card-section">
 				<div className="card game-card"></div>
