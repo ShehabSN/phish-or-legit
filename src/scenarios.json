@@ -1,0 +1,40 @@
+{
+	"all": [
+		{
+			"imageURL": "",
+			"answer": false,
+			"tips": [
+				"tip 1",
+				"tip 2",
+				"tip 3"
+			]
+		},
+		{
+			"imageURL": "",
+			"answer": true,
+			"tips": [
+				"tip 1",
+				"tip 2",
+				"tip 3"
+			]
+		},
+		{
+			"imageURL": "",
+			"answer": false,
+			"tips": [
+				"tip 1",
+				"tip 2",
+				"tip 3"
+			]
+		},
+		{
+			"imageURL": "",
+			"answer": true,
+			"tips": [
+				"tip 1",
+				"tip 2",
+				"tip 3"
+			]
+		}
+	]
+}
