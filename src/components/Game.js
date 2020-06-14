@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Game.scss";
 import { GameCard } from "./GameCard";
+import { withRouter } from "react-router-dom";
+import scenarios from "../scenarios";
 
-import scenarios from "../scenarios.json";
-
-function Game() {
+const Game = props => {
 	const [image, setImage] = useState();
 	const [tips, setTips] = useState();
 	const [answer, setAnswer] = useState();
 	const [isCorrect, setCorrect] = useState();
 	const [isAnswered, setAnswered] = useState(false);
 	const [asked, setAsked] = useState([]);
+	const [answeredCorrect, setAnsweredCorrect] = useState(0);
 
+	const ROUNDS = 7;
 
 	useEffect(() => {
 		console.log("mount");
-		const scenarioIndex = Math.floor(Math.random() * scenarios.all.length);
-		const scenario = scenarios.all[scenarioIndex];
+		const scenarioIndex = Math.floor(Math.random() * scenarios.length);
+		const scenario = scenarios[scenarioIndex];
 
-		setAsked(a =>a.concat(scenarioIndex));
+		setAsked(a => a.concat(scenarioIndex));
 		setImage(scenario.imageURL);
 		setTips(scenario.tips);
 		setAnswer(scenario.answer);
@@ -27,64 +29,95 @@ function Game() {
 	function submitAnswer(userAnswer) {
 		console.log("actual answer", answer);
 		console.log("user answer", userAnswer);
-		answer === userAnswer ? setCorrect(true) : setCorrect(false);
+		console.log("asked", asked);
+		if (answer === userAnswer) {
+			setCorrect(true);
+			setAnsweredCorrect(answeredCorrect => answeredCorrect + 1);
+		} else {
+			setCorrect(false);
+		}
 		setAnswered(true);
 	}
 
 	function nextQuestion() {
-		let scenarioIndex = Math.floor(Math.random() * scenarios.all.length);
-		while (asked.includes(scenarioIndex)) {
-			scenarioIndex = Math.floor(Math.random() * scenarios.all.length);
+		if (asked.length <= ROUNDS) {
+			let scenarioIndex = Math.floor(Math.random() * scenarios.length);
+			while (asked.includes(scenarioIndex)) {
+				scenarioIndex = Math.floor(Math.random() * scenarios.length);
+			}
+			let scenario = scenarios[scenarioIndex];
+			console.log("inside next before, asked", asked);
+			setAsked(a => a.concat(scenarioIndex));
+			console.log("inside next, asked", asked);
+			setImage(scenario.imageURL);
+			setTips(scenario.tips);
+			setAnswer(scenario.answer);
+			setAnswered(false);
+		} else {
+			gameOverRedirect();
 		}
-		let scenario = scenarios.all[scenarioIndex];
-		console.log("inside next, asked",asked);
-		setAsked(a => a.concat(scenarioIndex));
-		setImage(scenario.imageURL);
-		setTips(scenario.tips);
-		setAnswer(scenario.answer);
-		setAnswered(false);
+	}
+
+	function gameOverRedirect() {
+		props.history.push({
+			pathname: "/game-over",
+			state: {
+				correctAmount: answeredCorrect,
+			},
+		});
 	}
 
 	return (
 		<div className="App">
-			{isCorrect === true ? (
-				<p>Correct</p>
-			) : isCorrect === false ? (
-				<p>Incorrect</p>
-			) : null}
-			<div className="accent-bar bg-both" />
+			<div
+				className={`accent-bar ${
+					!isAnswered ? "bg-both" : isCorrect ? "bg-green" : "bg-red"
+				}`}
+			/>
 			<div className="card-section">
-				<div className="card game-card"></div>
-				<GameCard />
-			</div>
-			{ !isAnswered ? (
-			<div className="button-section">
-				<div
-					onClick={() => submitAnswer(false)}
-					className="button button-red game-button button-large">
-					Phish
-				</div>
-				<div
-					onClick={() => submitAnswer(true)}
-					className="button button-green game-button button-large">
-					Legit
-				</div>
-			</div>) : (
-			<div className="answer-section">
-				<div className="answer-description">
-				{isCorrect ? (
-				<p className="text-green">Correct, it's {answer ? "legit" : "a phish"}! </p>) :
-				(<p className="text-red">Incorrect, it's {answer ? "legit" : "a phish"}! </p>)}	
-				</div>
-				<div
-					onClick={nextQuestion}
-					className="button button-light game-button button-large">
-					Next
+				<div className="game-card">
+					<GameCard image={image} />
 				</div>
 			</div>
+			{!isAnswered ? (
+				<div className="button-section">
+					<div
+						onClick={() => submitAnswer(false)}
+						className="button button-red game-button button-large">
+						Phish
+					</div>
+					<div
+						onClick={() => submitAnswer(true)}
+						className="button button-green game-button button-large">
+						Legit
+					</div>
+				</div>
+			) : (
+				<div className="answer-wrapper">
+					<div className="answer-section">
+						<div className="answer-description">
+							{isCorrect ? (
+								<p className="text-green">
+									Correct, it's {answer ? "legit" : "a phish"}!{" "}
+								</p>
+							) : (
+								<p className="text-red">
+									Incorrect, it's {answer ? "legit" : "a phish"}!{" "}
+								</p>
+							)}
+						</div>
+						<div
+							onClick={
+								asked.length === ROUNDS ? gameOverRedirect : nextQuestion
+							}
+							className="button button-light button-large">
+							{asked.length === ROUNDS ? "Done" : "Next"}
+						</div>
+					</div>
+				</div>
 			)}
 		</div>
 	);
-}
+};
 
-export default Game;
+export default withRouter(Game);
