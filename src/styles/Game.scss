@@ -12,6 +12,17 @@
 	justify-content: center;
 }
 
+.answer-section {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.answer-description{
+	font-size: calc(15px + 2vmin);
+	font-weight: 600;
+}
+
 .game-button {
 	margin: 2% 10%;
 }
