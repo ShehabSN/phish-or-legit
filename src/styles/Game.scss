@@ -12,13 +12,25 @@
 	justify-content: center;
 }
 
+.answer-wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
 .answer-section {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
+	width: 60%;
+	& > .button {
+		height: min-content;
+	}
 }
 
-.answer-description{
+.answer-description {
 	font-size: calc(15px + 2vmin);
 	font-weight: 600;
 }
@@ -30,4 +42,7 @@
 .game-card {
 	width: 80vw;
 	height: 50vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
