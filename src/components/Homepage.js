@@ -17,10 +17,6 @@ function Homepage() {
 					<Link to="/play" className="button button-light button-large">
 						Play
 					</Link>
-					<p className="button-description">Or before playing...</p>
-					<a href="#tips" className="button button-dark">
-						View Tips
-					</a>
 				</div>
 				<div className="page-column flex-center">
 					<div className="card how-to-play">
@@ -28,17 +24,6 @@ function Homepage() {
 					</div>
 				</div>
 			</div>
-			<section id="tips" className="page">
-				<h3 className="tips-title">Gameplay Tips</h3>
-				<div>
-					<p>Tip for the game, bla bla bla</p>
-					<p>Tip for the game, bla bla bla</p>
-					<p>Tip for the game, bla bla bla</p>
-					<p>Tip for the game, bla bla bla</p>
-					<p>Tip for the game, bla bla bla</p>
-					<p>Tip for the game, bla bla bla</p>
-				</div>
-			</section>
 		</div>
 	);
 }
