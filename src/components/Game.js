@@ -94,7 +94,7 @@ const Game = props => {
 				</div>
 			) : (
 				<div className="answer-wrapper">
-					<div className="answer-section">
+					<div className="answer-section row">
 						<div className="answer-description">
 							{isCorrect ? (
 								<p className="text-green">
@@ -112,6 +112,14 @@ const Game = props => {
 							}
 							className="button button-light button-large">
 							{asked.length === ROUNDS ? "Done" : "Next"}
+						</div>
+					</div>
+					<div className="tips-container">
+						<h1>Tips</h1>
+						<div className="tip-text">
+							{tips.map(tip => {
+								return <p dangerouslySetInnerHTML={{ __html: tip }} />;
+							})}
 						</div>
 					</div>
 				</div>

@@ -14,14 +14,17 @@
 
 .answer-wrapper {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
-.answer-section {
+.row {
 	display: flex;
 	flex-direction: row;
+}
+
+.answer-section {
 	justify-content: space-between;
 	align-items: center;
 	width: 60%;
@@ -45,4 +48,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.tips-container {
+	width: 60%;
+	padding-bottom: 40px;
+	& > h1 {
+		font-size: calc(10px + 2vmin);
+	}
+}
+
+.tip-text {
+	& > p > a {
+		color: white;
+	}
 }
