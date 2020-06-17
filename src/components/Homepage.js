@@ -21,6 +21,10 @@ function Homepage() {
 				<div className="page-column flex-center">
 					<div className="card how-to-play">
 						<h2 className="page-heading2">How to Play</h2>
+						<p>1. You will be presented with a variety of media such as emails and ads.</p>
+						<p>2. Your job is to analyze each scenario and take note of all the details. </p>
+						<p>3. Are you presented with a phising risk? Smash that phish button!</p>
+						<p>4. Or is the scenario safe and seems legit? Hit the Legit button!</p>
 					</div>
 				</div>
 			</div>

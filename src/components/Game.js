@@ -13,7 +13,7 @@ const Game = props => {
 	const [asked, setAsked] = useState([]);
 	const [answeredCorrect, setAnsweredCorrect] = useState(0);
 
-	const ROUNDS = 7;
+	const ROUNDS = 10;
 
 	useEffect(() => {
 		console.log("mount");
