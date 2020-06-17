@@ -58,7 +58,7 @@ const scenarios = [
 		tips: [
 			'This is clearly a phish as the email has way too many red flags. Firstly, emails that try to cause you to panic or act immediately or "URGENTLY" as stated in the subject are often phishing attempts.',
 			"Another clear sign is the sender address. What kind of email is imfunpayment@gmail.com? Even the name itself hints at a laughable phishing attempt.",
-			'Most importantly, the message makes no sense at all. Why would a random banker, whose client supposedly died of COVID-19, which is clearly irrelevant and a half-hearted attempt to somehow cause panic by including the name of a common (and relevant) cause of panic, want to give you a business supposedly worth $5 million? Also note the poor grammar ", Am banker" which is another common sign. Always consider the message, who its from, and whether what its saying could be possible or realistic.',
+			'Most importantly, the message makes no sense at all. Why would a random banker, whose client supposedly died of COVID-19, which is clearly irrelevant and a half-hearted attempt to somehow cause panic by including the name of a common (and current) cause of panic, want to give you a business supposedly worth $5 million? Also note the poor grammar ", Am banker" which is another common sign. Always consider the message, who it\'s from, and whether what its saying could be possible or realistic.',
 		],
 	},
 	{
