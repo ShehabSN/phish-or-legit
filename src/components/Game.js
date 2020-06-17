@@ -68,7 +68,7 @@ const Game = props => {
 	}
 
 	return (
-		<div className="App">
+		<div className="App fade-in">
 			<div
 				className={`accent-bar ${
 					!isAnswered ? "bg-both" : isCorrect ? "bg-green" : "bg-red"
@@ -80,7 +80,7 @@ const Game = props => {
 				</div>
 			</div>
 			{!isAnswered ? (
-				<div className="button-section">
+				<div className="button-section fade-in">
 					<div
 						onClick={() => submitAnswer(false)}
 						className="button button-red game-button button-large">
@@ -95,7 +95,7 @@ const Game = props => {
 			) : (
 				<div className="answer-wrapper">
 					<div className="answer-section row">
-						<div className="answer-description">
+						<div className="answer-description fade-in">
 							{isCorrect ? (
 								<p className="text-green">
 									Correct, it's {answer ? "legit" : "a phish"}!{" "}
@@ -114,7 +114,7 @@ const Game = props => {
 							{asked.length === ROUNDS ? "Done" : "Next"}
 						</div>
 					</div>
-					<div className="tips-container">
+					<div className="tips-container fade-in">
 						<h1>Tips</h1>
 						<div className="tip-text">
 							{tips.map(tip => {
