@@ -3,7 +3,7 @@ const scenarios = [
 		imageURL: require("./images/phish/01.png"),
 		answer: false,
 		tips: [
-			'First of all, the sender\'s email address contains the company name and so does the domain! Unfortunately this is enough to fool some people. However, would an actual electricity company ever use a <a href="https://en.wikipedia.org/wiki/Top-level_domain">TLD</a> such as .info for their emails?',
+			'First of all, the sender\'s email address contains the company name and so does the domain! Unfortunately this is enough to fool some people. However, would an actual electricity company ever use a <a target="_blank" href="https://en.wikipedia.org/wiki/Top-level_domain">TLD</a> such as .info for their emails?',
 			'Notice how the email is also riddled with grammar and spelling mistakes. Another thing to note is that this email has an impersonal greeting, "Dear Valued Customer". This is quite the red flag, especially for an electricity company demanding payment from their customers.',
 			"Lastly, the premise of this email doesn't make much sense. An electricity company would usually send you an invoice by mail. However, if you have a paperless-billing, it would be a good idea to log into the energy company's website and check your invoices (don't click on any links in the email). A good word of advice is to call the company directly using their customer support number and inquire about this bill directly with them.",
 		],
@@ -21,7 +21,7 @@ const scenarios = [
 		imageURL: require("./images/phish/02.png"),
 		answer: false,
 		tips: [
-			'This type of phishing is particularly dangerous since the sender address seems to be completely legit (account@fisco.com). However, attackers can do something called <a href="https://en.wikipedia.org/wiki/Email_spoofing#Malicious_use_of_spoofing">email spoofing</a> to forge sender addresses. There is an element of negligence on Fisco\'s part for not implementing systems such as SPF, DKIM, and DMARC to protect their customers from email spoofing.',
+			'This type of phishing is particularly dangerous since the sender address seems to be completely legit (account@fisco.com). However, attackers can do something called <a target="_blank" href="https://en.wikipedia.org/wiki/Email_spoofing#Malicious_use_of_spoofing">email spoofing</a> to forge sender addresses. There is an element of negligence on Fisco\'s part for not implementing systems such as SPF, DKIM, and DMARC to protect their customers from email spoofing.',
 			'Phishing scams typically try to frighten you by saying something has gone wrong and you need to resolve it by providing your information and doing something. In this case, their account has been "temporarily locked" and they need to click on a link to "get the access back immediatly".',
 			'An official email would never include a hyperlink saying, "Please click Here" to perform an important action. Also, that URL definitely does not look like an official domain belonging to Fisco. If you were to click on it, it would probably lead you to a page imitating the official company webpage to get you to give them your information. The best course of action here would be to delete the email and if you\'re still in doubt, contact the support team and inquire about your account status with them.',
 		],
