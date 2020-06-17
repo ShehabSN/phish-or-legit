@@ -48,8 +48,8 @@ const scenarios = [
 		imageURL: require("./images/legit/03.png"),
 		answer: true,
 		tips: [
-			'If you really like the deal that this bank is offering but aren\'t too sure about the legitimacy of this advertisement, a good technique would be to search up the offer name. In this case, if you searched up something along the lines of, "Fisco no monthly fee student account", you would (hopefully) land on the official Fisco website where you can learn more about the offer.',
-			"Lastly, the sender's email address is legit and the email body itself is free from any spelling or grammatical errors. This further reinforces the email's legitimacy.",
+			"This advertisement seems totally fine and ordinary. This is the kind of advertisement a bank would actually put out. There seems to be nothing phishy about it.",
+			'If you really like the deal that this bank is offering but aren\'t too sure about the legitimacy of this advertisement, a good technique would be to search up the offer name. In this case, if you searched up something along the lines of, "Fisco no monthly fee student account", you would (hopefully) land on the official Fisco website where you can learn more about the offer.'
 		],
 	},
 	{
