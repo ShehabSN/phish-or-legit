@@ -16,7 +16,7 @@
 	display: flex
 	flex-direction: row
 	justify-content: space-between
-	@media all and (max-width: 1000px)
+	@media all and (max-width: 1000px), all and (max-height: 700px)
 		flex-direction: column
 
 .page-column
@@ -29,6 +29,13 @@
 .button-description
 	font-size: calc( 10px + 2vmin )
 	margin-top: 40px
+
+.flex-column
+	display: flex
+	flex-direction: column
+
+.flex-align-center
+	align-items: center
 
 .flex-center
 	display: flex
@@ -43,6 +50,12 @@
 	@media all and (max-width: 1000px)
 		height: 100%
 		margin-bottom: 40px
+	@media all and (max-height: 700px)
+		height: max-content
+		margin-bottom: 40px
+		padding-bottom: 20px
+	@media all and (max-width: 700px)
+		width: 95%
 
 #tips
 	display: flex
